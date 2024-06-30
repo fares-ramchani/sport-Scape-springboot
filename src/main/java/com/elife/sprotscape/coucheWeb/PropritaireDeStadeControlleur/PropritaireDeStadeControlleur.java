@@ -1,5 +1,6 @@
 package com.elife.sprotscape.coucheWeb.PropritaireDeStadeControlleur;
 
+import com.elife.sprotscape.Entities.propritaireDeStade;
 import com.elife.sprotscape.coucheService.servicesPropritaireDeStade.servicesPropritaireDeStade;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,10 +20,16 @@ public class PropritaireDeStadeControlleur {
 
 
   @PostMapping(path = "/ajouterPropritaire")
-  public void ajouterClient(@RequestParam("propritaireDeStadeRequestDTO") String propritaireDeStadeRequestDTO,
+  public void ajouterpropritaire(@RequestParam("propritaireDeStadeRequestDTO") String propritaireDeStadeRequestDTO,
                             @RequestParam("logo") MultipartFile file) throws IOException {
 
     servicesPropritaireDeStade.ajouter_un_PropritaireDeStade(propritaireDeStadeRequestDTO,file);
+
+  }
+  @GetMapping(path = "/GetlogosPropritaire")
+  public propritaireDeStade getPropritaire(@RequestParam String id)  {
+
+    return servicesPropritaireDeStade.getPropritaireDeStade(id);
 
   }
 }

@@ -35,21 +35,26 @@ public class servicesPropritaireDeStadeImpl implements servicesPropritaireDeStad
     propritaireDeStade.setNom(propritaireDeStadeRequestDTO1.getNom());
     propritaireDeStade.setPrenom(propritaireDeStadeRequestDTO1.getPrenom());
     propritaireDeStade.setTelephone(propritaireDeStadeRequestDTO1.getTelephone());
-    propritaireDeStade.setEntreprise(propritaireDeStadeRequestDTO1.getEntrepriseee());
+    propritaireDeStade.setEntrepriseee(propritaireDeStadeRequestDTO1.getEntrepriseee());
     propritaireDeStade.setActiviteSportive(propritaireDeStadeRequestDTO1.getActiviteSportive());
     propritaireDeStade.setNomPhotoPropritaire(File.getOriginalFilename());
     propritaireDeStade.setTypePhotoPropritaire(File.getContentType());
     propritaireDeStade.setPhotoPropritaire(compressBytes(File.getBytes()));
     propritaireDeStade.setCompteVerifier(false);
-    jdbcUserDetailsManager.createUser(User.withUsername(propritaireDeStade.getEntreprise()).password(passwordEncoder.encode(propritaireDeStade.getEntreprise()
+    jdbcUserDetailsManager.createUser(User.withUsername(propritaireDeStade.getEntrepriseee()).password(passwordEncoder.encode(propritaireDeStade.getEntrepriseee()
     )).authorities("PROPRITAIRE").build());
     PropritaireDeStadeRepository.save(propritaireDeStade);
 
   }
 
   @Override
-  public propritaireDeStade getPropritaireDeStade(Long id) {
-    return null;
+  public propritaireDeStade getPropritaireDeStade(String id) {
+    propritaireDeStade propritaireDeStade=PropritaireDeStadeRepository.findByEntrepriseee(id);
+    propritaireDeStade propritaireDeStade2=new propritaireDeStade();
+    propritaireDeStade2=(new propritaireDeStade(propritaireDeStade.getNomPhotoPropritaire(),propritaireDeStade.getTypePhotoPropritaire(),decompressBytes(propritaireDeStade.getPhotoPropritaire())));
+
+
+    return propritaireDeStade2;
   }
 
   @Override

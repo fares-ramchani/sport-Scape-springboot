@@ -73,6 +73,7 @@ public class securityConfig {
       .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/callback/**").permitAll())
       .authorizeHttpRequests(ar->ar.requestMatchers("/Athlete/ajouterAthlete/**").permitAll())
       .authorizeHttpRequests(ar->ar.requestMatchers("/propritaire/ajouterPropritaire/**").permitAll())
+      .authorizeHttpRequests(ar->ar.requestMatchers("/propritaire/GetlogosPropritaire/**").permitAll())
       .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
       .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
       .cors(Customizer.withDefaults())

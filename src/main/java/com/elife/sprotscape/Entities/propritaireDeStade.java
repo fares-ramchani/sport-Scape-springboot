@@ -23,7 +23,7 @@ public class propritaireDeStade {
   private String telephone;
   private String mail;
   private String activiteSportive;
-  private String Entreprise;
+  private String entrepriseee;
   private String NomPhotoPropritaire;
   private boolean compteVerifier ;
   @Column(name="type")
