@@ -4,9 +4,9 @@ import com.elife.sprotscape.DAO.AthleteRepository.AthleteRepository;
 import com.elife.sprotscape.DTO.AthleteDTO.AthleteRequestDTO;
 import com.elife.sprotscape.Entities.Athlete;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.User;
+/*import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;*/
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,8 +16,8 @@ import java.util.List;
 @Transactional
 public class servicesAthleteImpl implements servicesAthlete {
   private AthleteRepository AthleteRepository;
-  private JdbcUserDetailsManager jdbcUserDetailsManager;
-  private PasswordEncoder passwordEncoder;
+ /* private JdbcUserDetailsManager jdbcUserDetailsManager;
+  private PasswordEncoder passwordEncoder;*/
   @Override
   public void ajouter_un_Athlete(AthleteRequestDTO AthleteRequestDTO) {
     Athlete Athlete=new Athlete();
@@ -25,8 +25,8 @@ public class servicesAthleteImpl implements servicesAthlete {
     Athlete.setNom(AthleteRequestDTO.getNom());
     Athlete.setPrenom(AthleteRequestDTO.getPrenom());
     Athlete.setTelephone(AthleteRequestDTO.getTelephone());
-    jdbcUserDetailsManager.createUser(User.withUsername(AthleteRequestDTO.getNom()).password(passwordEncoder.encode(AthleteRequestDTO.getMotDePasse()
-    )).authorities("Athlete").build());
+ /*   jdbcUserDetailsManager.createUser(User.withUsername(AthleteRequestDTO.getNom()).password(passwordEncoder.encode(AthleteRequestDTO.getMotDePasse()
+    )).authorities("Athlete").build());*/
 
     AthleteRepository.save(Athlete);
 
@@ -58,10 +58,10 @@ public class servicesAthleteImpl implements servicesAthlete {
     if (AthleteRequestDTO.getTelephone()!=""){
       Athlete.setTelephone(AthleteRequestDTO.getTelephone());
     }
-    if (AthleteRequestDTO.getMotDePasse()!=""){
+ /*   if (AthleteRequestDTO.getMotDePasse()!=""){
       jdbcUserDetailsManager.updateUser(User.withUsername(AthleteRequestDTO.getNom()).password(passwordEncoder.encode(AthleteRequestDTO.getMotDePasse()
       )).authorities("CLIENT").build());
-    }
+    }*/
     AthleteRepository.save(Athlete);
   }
 

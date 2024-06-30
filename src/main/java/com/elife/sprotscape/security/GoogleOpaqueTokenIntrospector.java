@@ -1,5 +1,5 @@
 package com.elife.sprotscape.security;
-
+/*
 import com.elife.sprotscape.DTO.SecurityDTO.UserInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal;
@@ -10,10 +10,10 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.util.HashMap;
 import java.util.Map;
 
-@RequiredArgsConstructor
-public class GoogleOpaqueTokenIntrospector implements OpaqueTokenIntrospector {
+@RequiredArgsConstructor*/
+public class GoogleOpaqueTokenIntrospector /*implements OpaqueTokenIntrospector*/ {
 
-  private final WebClient userInfoClient;
+ /* private final WebClient userInfoClient;
 
   @Override
   public OAuth2AuthenticatedPrincipal introspect(String token) {
@@ -29,5 +29,5 @@ public class GoogleOpaqueTokenIntrospector implements OpaqueTokenIntrospector {
     attributes.put("sub", userInfo.sub());
     attributes.put("name", userInfo.name());
     return new OAuth2IntrospectionAuthenticatedPrincipal(userInfo.name(), attributes, null);
-  }
+  }*/
 }
