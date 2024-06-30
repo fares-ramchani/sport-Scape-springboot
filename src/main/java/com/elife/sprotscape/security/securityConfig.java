@@ -1,5 +1,5 @@
 package com.elife.sprotscape.security;
-
+/*
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -35,9 +35,9 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
-@EnableMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity(prePostEnabled = true)*/
 public class securityConfig {
- final WebClient userInfoClient;
+ /*final WebClient userInfoClient;
   @Bean
   public JdbcUserDetailsManager jdbcUserDetailsManager(DataSource dataSource) {
     return new JdbcUserDetailsManager(dataSource);
@@ -45,7 +45,7 @@ public class securityConfig {
 
 
 
-/*@Bean
+@Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager(){
         PasswordEncoder passwordEncoder =passwordEncoder();
 
@@ -54,7 +54,7 @@ public class securityConfig {
 
                aa.createUser(User.withUsername("admin22").password(passwordEncoder.encode("12345")).authorities("USER", "ADMIN").build());
         return aa;
-            }*/
+            }
 
 
   @Bean
@@ -79,7 +79,7 @@ public class securityConfig {
       .build();
   }
 
-  @Bean
+ /* @Bean
   JwtEncoder jwtEncoder() {
     String secretKey = "bgjdfghdf6sh5sd4h5dsh65stdh65stfh654SF6hsfsh15+sf1th56gfhs4785lg";
     return new NimbusJwtEncoder(new ImmutableSecret<>(secretKey.getBytes()));
@@ -115,5 +115,5 @@ public class securityConfig {
   @Bean
   public OpaqueTokenIntrospector introspector() {
    return new GoogleOpaqueTokenIntrospector(userInfoClient);
-  }
+  }*/
 }

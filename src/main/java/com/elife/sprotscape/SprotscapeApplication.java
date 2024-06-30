@@ -1,19 +1,19 @@
 package com.elife.sprotscape;
 
-import org.springframework.boot.CommandLineRunner;
+//import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+/*import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;*/
 
 @SpringBootApplication
 public class SprotscapeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SprotscapeApplication.class, args);}
-    @Bean
+  /*  @Bean
     CommandLineRunner start(JdbcUserDetailsManager JdbcUserDetailsManager, PasswordEncoder PasswordEncoder) {
 
       return args -> {
@@ -26,5 +26,5 @@ public class SprotscapeApplication {
 
 
       };
-    }
+    }*/
   }

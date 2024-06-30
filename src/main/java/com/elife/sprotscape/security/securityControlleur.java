@@ -1,5 +1,5 @@
 package com.elife.sprotscape.security;
-
+/*
 import com.elife.sprotscape.Entities.Athlete;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.elife.sprotscape.DTO.SecurityDTO.TokenDto;
@@ -29,7 +29,6 @@ import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.security.GeneralSecurityException;
@@ -43,10 +42,10 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/auth")
 @AllArgsConstructor
-
+*/
 
 public class securityControlleur {
-    @Autowired
+ /*   @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
     private JdbcUserDetailsManager jdbcUserDetailsManager;
@@ -145,7 +144,7 @@ public class securityControlleur {
    }
 
 
-    @PostMapping(path = "/login")
+   @PostMapping(path = "/login")
     public Map<String, String> login(String username, String password) {
         if (jdbcUserDetailsManager.userExists(username)) {
             Authentication authentication = authenticationManager.authenticate(
@@ -168,5 +167,5 @@ public class securityControlleur {
             String er1 = "username n'exist pas";
             return Map.of("er1", er1);
         }
-    }
+    }*/
 }
