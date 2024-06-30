@@ -6,9 +6,9 @@ import com.elife.sprotscape.Entities.propritaireDeStade;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
-/*import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;*/
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,8 +24,8 @@ import java.util.zip.Inflater;
 @Service
 @Transactional
 public class servicesPropritaireDeStadeImpl implements servicesPropritaireDeStade {
-/*  private JdbcUserDetailsManager jdbcUserDetailsManager;
-  private PasswordEncoder passwordEncoder;*/
+  private JdbcUserDetailsManager jdbcUserDetailsManager;
+  private PasswordEncoder passwordEncoder;
   private PropritaireDeStadeRepository PropritaireDeStadeRepository;
   @Override
   public void ajouter_un_PropritaireDeStade(String propritaireDeStadeRequestDTO, MultipartFile File) throws IOException {
@@ -35,21 +35,26 @@ public class servicesPropritaireDeStadeImpl implements servicesPropritaireDeStad
     propritaireDeStade.setNom(propritaireDeStadeRequestDTO1.getNom());
     propritaireDeStade.setPrenom(propritaireDeStadeRequestDTO1.getPrenom());
     propritaireDeStade.setTelephone(propritaireDeStadeRequestDTO1.getTelephone());
-    propritaireDeStade.setEntreprise(propritaireDeStadeRequestDTO1.getEntrepriseee());
+    propritaireDeStade.setEntrepriseee(propritaireDeStadeRequestDTO1.getEntrepriseee());
     propritaireDeStade.setActiviteSportive(propritaireDeStadeRequestDTO1.getActiviteSportive());
     propritaireDeStade.setNomPhotoPropritaire(File.getOriginalFilename());
     propritaireDeStade.setTypePhotoPropritaire(File.getContentType());
     propritaireDeStade.setPhotoPropritaire(compressBytes(File.getBytes()));
     propritaireDeStade.setCompteVerifier(false);
-  /*  jdbcUserDetailsManager.createUser(User.withUsername(propritaireDeStade.getEntreprise()).password(passwordEncoder.encode(propritaireDeStade.getEntreprise()
-    )).authorities("PROPRITAIRE").build());*/
+    jdbcUserDetailsManager.createUser(User.withUsername(propritaireDeStade.getEntrepriseee()).password(passwordEncoder.encode(propritaireDeStade.getEntrepriseee()
+    )).authorities("PROPRITAIRE").build());
     PropritaireDeStadeRepository.save(propritaireDeStade);
 
   }
 
   @Override
-  public propritaireDeStade getPropritaireDeStade(Long id) {
-    return null;
+  public propritaireDeStade getPropritaireDeStade(String id) {
+    propritaireDeStade propritaireDeStade=PropritaireDeStadeRepository.findByEntrepriseee(id);
+    propritaireDeStade propritaireDeStade2=new propritaireDeStade();
+    propritaireDeStade2=(new propritaireDeStade(propritaireDeStade.getNomPhotoPropritaire(),propritaireDeStade.getTypePhotoPropritaire(),decompressBytes(propritaireDeStade.getPhotoPropritaire())));
+
+
+    return propritaireDeStade2;
   }
 
   @Override

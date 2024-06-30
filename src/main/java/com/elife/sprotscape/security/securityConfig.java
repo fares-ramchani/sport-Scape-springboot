@@ -1,5 +1,5 @@
 package com.elife.sprotscape.security;
-/*
+
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -35,27 +35,26 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
-@EnableMethodSecurity(prePostEnabled = true)*/
+@EnableMethodSecurity(prePostEnabled = true)
 public class securityConfig {
- /*final WebClient userInfoClient;
+  final WebClient userInfoClient;
+
   @Bean
   public JdbcUserDetailsManager jdbcUserDetailsManager(DataSource dataSource) {
     return new JdbcUserDetailsManager(dataSource);
   }
 
+  // @Bean
+  // public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
+  //   PasswordEncoder passwordEncoder = passwordEncoder();
 
+  //   InMemoryUserDetailsManager aa = new InMemoryUserDetailsManager();
+  //   aa.createUser(User.withUsername("user11").password(passwordEncoder.encode("12345")).authorities("USER").build());
 
-@Bean
-    public InMemoryUserDetailsManager inMemoryUserDetailsManager(){
-        PasswordEncoder passwordEncoder =passwordEncoder();
-
-        InMemoryUserDetailsManager aa=new InMemoryUserDetailsManager();
-                aa.createUser(User.withUsername("user11").password(passwordEncoder.encode("12345")).authorities("USER").build());
-
-               aa.createUser(User.withUsername("admin22").password(passwordEncoder.encode("12345")).authorities("USER", "ADMIN").build());
-        return aa;
-            }
-
+  //   aa.createUser(
+  //       User.withUsername("admin22").password(passwordEncoder.encode("12345")).authorities("USER", "ADMIN").build());
+  //   return aa;
+  // }
 
   @Bean
   public PasswordEncoder passwordEncoder() {
@@ -65,21 +64,22 @@ public class securityConfig {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
     return httpSecurity
-      .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-      .csrf(csrf -> csrf.disable())
-      .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/login/**").permitAll())
-      .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/signUpGoogle/**").permitAll())
-      .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/url/**").permitAll())
-      .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/callback/**").permitAll())
-      .authorizeHttpRequests(ar->ar.requestMatchers("/Athlete/ajouterAthlete/**").permitAll())
-      .authorizeHttpRequests(ar->ar.requestMatchers("/propritaire/ajouterPropritaire/**").permitAll())
-      .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
-      .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
-      .cors(Customizer.withDefaults())
-      .build();
+        .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/login/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/signUpGoogle/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/url/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/callback/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/Athlete/ajouterAthlete/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/ajouterPropritaire/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetlogosPropritaire/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
+        .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
+        .cors(Customizer.withDefaults())
+        .build();
   }
 
- /* @Bean
+  @Bean
   JwtEncoder jwtEncoder() {
     String secretKey = "bgjdfghdf6sh5sd4h5dsh65stdh65stfh654SF6hsfsh15+sf1th56gfhs4785lg";
     return new NimbusJwtEncoder(new ImmutableSecret<>(secretKey.getBytes()));
@@ -114,6 +114,6 @@ public class securityConfig {
 
   @Bean
   public OpaqueTokenIntrospector introspector() {
-   return new GoogleOpaqueTokenIntrospector(userInfoClient);
-  }*/
+    return new GoogleOpaqueTokenIntrospector(userInfoClient);
+  }
 }

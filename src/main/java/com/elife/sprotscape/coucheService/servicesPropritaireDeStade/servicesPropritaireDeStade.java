@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface servicesPropritaireDeStade {
   public void ajouter_un_PropritaireDeStade(String propritaireDeStadeRequestDTO, MultipartFile File) throws IOException;
-  public propritaireDeStade getPropritaireDeStade(Long id) ;
+  public propritaireDeStade getPropritaireDeStade(String id) ;
   public List<propritaireDeStade> getToutPropritaireDeStade();
   public void modifierPropritaireDeStade(propritaireDeStadeRequestDTO propritaireDeStadeRequestDTO);
   public void deletePropritaireDeStade(Long id);

@@ -7,7 +7,12 @@ import com.elife.sprotscape.DTO.EvenementDTO.EvenementRequestDTO;
 import com.elife.sprotscape.Entities.Evenement;
 import com.elife.sprotscape.enums.Estpayer;
 import com.elife.sprotscape.enums.Etat;
-
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import lombok.AllArgsConstructor;
+@AllArgsConstructor
+@Service
+@Transactional
 public class serviceEvenementImpl implements serviceEvenement {
     private EvenementRepository evenementRepository;
 
