@@ -18,6 +18,7 @@ public class Partenaire {
     private String nomResponsable;
     private String telephoneResponsable;
     private String adressePartenaire;
+    private String emailResponsable;
     @Enumerated(EnumType.STRING)
     private Etat etatPartenaire;
 }

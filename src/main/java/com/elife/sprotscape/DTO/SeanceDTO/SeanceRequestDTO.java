@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 public class SeanceRequestDTO {
     private Long idSeance;
     private String jourSeance;
-    private DateTime debutSeance;
-    private DateTime finSeance;
+    private String debutSeance;
+    private String finSeance;
     private boolean estDisponible;
    // private Stade stade;
 }

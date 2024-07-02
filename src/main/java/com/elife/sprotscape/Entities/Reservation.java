@@ -16,7 +16,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReservation;
     private String jourReservation;
-    private DateTime heureReservation;
+    private String heureReservation;
     @Enumerated(EnumType.STRING)
     private EtatReservation etatReservation;
 }

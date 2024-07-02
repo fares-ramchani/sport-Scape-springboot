@@ -15,7 +15,7 @@ public class Seance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idSeance;
     private String jourSeance;
-    private DateTime debutSeance;
-    private DateTime finSeance;
+    private String debutSeance;
+    private String finSeance;
     private boolean estDisponible;
 }

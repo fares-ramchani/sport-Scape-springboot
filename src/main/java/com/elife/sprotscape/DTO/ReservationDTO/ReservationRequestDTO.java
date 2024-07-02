@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReservationRequestDTO {
     private String jourReservation;
-    private DateTime heureReservation;
+    private String heureReservation;
     private EtatReservation etatReservation;
 }
