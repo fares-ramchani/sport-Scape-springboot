@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,8 +22,5 @@ public class Contact {
     private String sujet;
     private String mail;
     private String description;
-
-    // @ManyToMany(mappedBy = "contact")
-    // private Set<Admin> admin;
 
 }

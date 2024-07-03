@@ -46,14 +46,15 @@ public class securityConfig {
 
   // @Bean
   // public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-  //   PasswordEncoder passwordEncoder = passwordEncoder();
+  // PasswordEncoder passwordEncoder = passwordEncoder();
 
-  //   InMemoryUserDetailsManager aa = new InMemoryUserDetailsManager();
-  //   aa.createUser(User.withUsername("user11").password(passwordEncoder.encode("12345")).authorities("USER").build());
+  // InMemoryUserDetailsManager aa = new InMemoryUserDetailsManager();
+  // aa.createUser(User.withUsername("user11").password(passwordEncoder.encode("12345")).authorities("USER").build());
 
-  //   aa.createUser(
-  //       User.withUsername("admin22").password(passwordEncoder.encode("12345")).authorities("USER", "ADMIN").build());
-  //   return aa;
+  // aa.createUser(
+  // User.withUsername("admin22").password(passwordEncoder.encode("12345")).authorities("USER",
+  // "ADMIN").build());
+  // return aa;
   // }
 
   @Bean
@@ -66,14 +67,28 @@ public class securityConfig {
     return httpSecurity
         .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(ar -> ar.requestMatchers("/**").permitAll())
-        /*.authorizeHttpRequests(ar -> ar.requestMatchers("/auth/login/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/signUpGoogle/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/url/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/callback/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/Athlete/ajouterAthlete/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/ajouterPropritaire/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetlogosPropritaire/**").permitAll())*/
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/**").permitAll())
+        /*
+         * .authorizeHttpRequests(ar ->
+         * ar.requestMatchers("/auth/login/**").permitAll())
+         * .authorizeHttpRequests(ar ->
+         * ar.requestMatchers("/auth/signUpGoogle/**").permitAll())
+         * .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/url/**").permitAll())
+         * .authorizeHttpRequests(ar ->
+         * ar.requestMatchers("/auth/callback/**").permitAll())
+         * .authorizeHttpRequests(ar ->
+         * ar.requestMatchers("/Athlete/ajouterAthlete/**").permitAll())
+         * .authorizeHttpRequests(ar ->
+         * ar.requestMatchers("/propritaire/ajouterPropritaire/**").permitAll())
+         */
+
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetlogosPropritaire/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/stade/ajouterStade/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetTousPropritaire/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/nombreDecompteVerifier/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/nombreDecompteNonVerifier/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/stade/getToutLesStades/**").permitAll())
+
         .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
         .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
         .cors(Customizer.withDefaults())

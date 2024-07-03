@@ -18,5 +18,5 @@ public interface serviceActivite {
 
     public void deleteActivite(Long id);
 
-    public Activite findByName(String name);
+    public Activite findByNomActivite(String name);
 }

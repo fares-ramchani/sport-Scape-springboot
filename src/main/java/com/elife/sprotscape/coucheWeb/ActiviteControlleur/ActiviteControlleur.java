@@ -69,7 +69,7 @@ public class ActiviteControlleur {
     return serviceActivite.getActiviteById(id);
   }
   @GetMapping(path = "/ByName/{name}")
-  public Activite findByName(@RequestParam String name){
-    return serviceActivite.findByName(name);
+  public Activite findByNomActivite(@RequestParam String name){
+    return serviceActivite.findByNomActivite(name);
   }
 }

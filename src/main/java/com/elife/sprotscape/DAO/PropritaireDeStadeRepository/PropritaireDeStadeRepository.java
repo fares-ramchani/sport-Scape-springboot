@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 
 public interface PropritaireDeStadeRepository extends JpaRepository<propritaireDeStade,Long> {
+  long countByCompteVerifier(boolean compteVerifier);
+  propritaireDeStade findByCode(String code);
   propritaireDeStade findByEntrepriseee(String id);
 
 

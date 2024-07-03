@@ -55,8 +55,8 @@ public class serviceEvenementImpl implements serviceEvenement {
     }
 
     @Override
-    public Evenement findByName(String name) {
-        return evenementRepository.findByName(name);
+    public Evenement findByNomEvenement(String name) {
+        return evenementRepository.findByNomEvenement(name);
     }
 
     @SuppressWarnings("unlikely-arg-type")

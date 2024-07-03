@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.elife.sprotscape.DTO.EvenementDTO.EvenementRequestDTO;
 import com.elife.sprotscape.Entities.Evenement;
 
 public interface serviceEvenement {
@@ -20,5 +19,5 @@ public interface serviceEvenement {
 
     public void deleteEvenement(Long id);
 
-    public Evenement findByName(String name);
+    public Evenement findByNomEvenement(String name);
 }

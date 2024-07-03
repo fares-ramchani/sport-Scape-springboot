@@ -89,8 +89,8 @@ public class serviceActiviteImpl implements serviceActivite {
   }
 
   @Override
-  public Activite findByName(String name){
-    return activiteRepository.findByName(name);
+  public Activite findByNomActivite(String name){
+    return activiteRepository.findByNomActivite(name);
   }
 
   // compressing and decompressing files

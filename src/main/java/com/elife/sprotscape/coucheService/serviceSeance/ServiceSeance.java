@@ -13,4 +13,5 @@ public interface ServiceSeance {
     public List<Seance> getSeanceByDisbonibilite(boolean dispo);
     public List<Seance> getAllSeance();
     public List<Seance> getSeanceByJour(String jour);
+    // public Seance findByJourSeanceAndHeureDebutSeance(String jour, String heure);
 }
