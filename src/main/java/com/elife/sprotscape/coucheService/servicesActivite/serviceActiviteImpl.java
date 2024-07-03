@@ -1,5 +1,6 @@
 package com.elife.sprotscape.coucheService.servicesActivite;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class serviceActiviteImpl implements serviceActivite {
     private ActiviteRepository activiteRepository;
 
     @Override
-    public void addActivite(ActiviteRequestDTO activiteRequestDTO) {
+    public void addActivite(ActiviteRequestDTO activiteRequestDTO){
         Activite activite = new Activite();
         activite.setNomActivite(activiteRequestDTO.getNomActivite());
         activite.setPrix(activiteRequestDTO.getPrix());

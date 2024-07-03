@@ -19,4 +19,8 @@ public class Reservation {
     private String heureReservation;
     @Enumerated(EnumType.STRING)
     private EtatReservation etatReservation;
+    @ManyToOne()
+    private Athlete athlete;
+    @ManyToOne()
+    private Stade stade;
 }

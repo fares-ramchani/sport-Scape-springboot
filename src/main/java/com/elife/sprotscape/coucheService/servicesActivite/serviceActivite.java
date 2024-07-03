@@ -1,5 +1,6 @@
 package com.elife.sprotscape.coucheService.servicesActivite;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.elife.sprotscape.DTO.ActiviteDTO.ActiviteRequestDTO;

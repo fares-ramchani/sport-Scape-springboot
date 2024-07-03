@@ -66,13 +66,14 @@ public class securityConfig {
     return httpSecurity
         .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/login/**").permitAll())
+            .authorizeHttpRequests(ar -> ar.requestMatchers("/**").permitAll())
+        /*.authorizeHttpRequests(ar -> ar.requestMatchers("/auth/login/**").permitAll())
         .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/signUpGoogle/**").permitAll())
         .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/url/**").permitAll())
         .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/callback/**").permitAll())
         .authorizeHttpRequests(ar -> ar.requestMatchers("/Athlete/ajouterAthlete/**").permitAll())
         .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/ajouterPropritaire/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetlogosPropritaire/**").permitAll())
+        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetlogosPropritaire/**").permitAll())*/
         .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
         .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
         .cors(Customizer.withDefaults())

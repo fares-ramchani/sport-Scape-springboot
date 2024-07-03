@@ -10,5 +10,5 @@ public interface SeanceRepository extends JpaRepository<Seance,Long> {
 
     List<Seance> findByEstDisponible(boolean dispo);
     List<Seance> findByJourSeance(String jour);
-    Seance findByJourSeanceAndHeureDebutSeance(String jour, DateTime heure);
+    Seance findByJourSeanceAndHeureDebutSeance(String jour, String heure);
 }
