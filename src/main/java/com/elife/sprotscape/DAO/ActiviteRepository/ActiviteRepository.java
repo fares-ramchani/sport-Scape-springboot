@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.elife.sprotscape.Entities.Activite;
 
 public interface ActiviteRepository extends JpaRepository<Activite,Long>{
-
+    Activite findByName(String name);
 }

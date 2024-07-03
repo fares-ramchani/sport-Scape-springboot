@@ -1,5 +1,5 @@
 package com.elife.sprotscape.DTO.EvenementDTO;
-import com.elife.sprotscape.enums.Estpayer;
+
 import com.elife.sprotscape.enums.Etat;
 
 import lombok.AllArgsConstructor;
@@ -17,6 +17,7 @@ public class EvenementRequestDTO {
     private String lieu;
     private long prix;
     private long nombreParticipant;
-    private Estpayer estPayer;
+    private Boolean estPayer;
     private Etat etatEvenement;
+    private String nomphotoEvenement;
 }
