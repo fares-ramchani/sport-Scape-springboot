@@ -12,8 +12,9 @@ public class stadeRequestDTO {
   private String code;
   private String ville;
   private String adresse;
-  private String nombremax;
   private String telephone;
   private String mail;
   private String activite;
+  private String description;
+  private String descriptionDetaillee;
 }

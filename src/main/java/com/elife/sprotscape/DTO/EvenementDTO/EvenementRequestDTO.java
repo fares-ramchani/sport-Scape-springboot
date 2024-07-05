@@ -17,7 +17,7 @@ public class EvenementRequestDTO {
     private String lieu;
     private long prix;
     private long nombreParticipant;
-    private Boolean estPayer;
+    private boolean estPayer;
     private Etat etatEvenement;
     private String nomphotoEvenement;
 }

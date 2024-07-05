@@ -82,6 +82,7 @@ public class securityConfig {
          * ar.requestMatchers("/propritaire/ajouterPropritaire/**").permitAll())
          */
 
+            .authorizeHttpRequests(ar -> ar.requestMatchers("/**").permitAll())
         .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetlogosPropritaire/**").permitAll())
         .authorizeHttpRequests(ar -> ar.requestMatchers("/stade/ajouterStade/**").permitAll())
         .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetTousPropritaire/**").permitAll())

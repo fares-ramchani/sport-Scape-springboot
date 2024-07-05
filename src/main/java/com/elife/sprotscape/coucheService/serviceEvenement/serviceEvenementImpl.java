@@ -37,7 +37,7 @@ public class serviceEvenementImpl implements serviceEvenement {
         evenement.setPrix(evenementRequestDTO1.getPrix());
         evenement.setNombreParticipant(evenementRequestDTO1.getNombreParticipant());
         evenement.setEtatEvenement(Etat.NON_TRAITER);
-        evenement.setEstPayer(evenementRequestDTO1.getEstPayer());
+        evenement.setEstPayer(evenementRequestDTO1.isEstPayer());
         evenement.setPhotoEvenement(compressBytes(File.getBytes()));
         evenement.setTypephotoEvenement(File.getContentType());
         evenement.setNomphotoEvenement(File.getOriginalFilename());
@@ -82,9 +82,7 @@ public class serviceEvenementImpl implements serviceEvenement {
         if (evenementRequestDTO1.getNombreParticipant() != -1) {
             evenement.setNombreParticipant(evenementRequestDTO1.getNombreParticipant());
         }
-        if (!evenementRequestDTO1.getEstPayer().equals("")) {
-            evenement.setEstPayer(evenementRequestDTO1.getEstPayer());
-        }
+            evenement.setEstPayer(evenementRequestDTO1.isEstPayer());
         if (!evenementRequestDTO1.getEtatEvenement().equals("")) {
             evenement.setEtatEvenement(evenementRequestDTO1.getEtatEvenement());
         }

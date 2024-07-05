@@ -30,4 +30,17 @@ public class StadeControlleur {
   public List<Stade> getToutLesStade(){
     return serviceStade.getTousLesStade();
   }
+
+  @GetMapping(path = "/getStadeByIdAndActivite/{id}")
+  public Stade getStadeByIdAndActivite(@PathVariable("id") Long id,@RequestParam("nomActivite") String nomActivite){
+    return serviceStade.getStadeByIdAndActivite(id,nomActivite);
+  }
+  @GetMapping(path = "/getStadeById/{id}")
+  public Stade getStadeById(@PathVariable Long id){
+    return serviceStade.getStadeById(id);
+  }
+  @GetMapping(path = "/getStadeByVilleAndActivite")
+  public List<Stade> getStadeByVilleAndActivite(@RequestParam("ville") String ville,@RequestParam("nomActivite") String nomActivite){
+    return serviceStade.getStadeByVilleAndActivite(ville,nomActivite);
+  }
 }

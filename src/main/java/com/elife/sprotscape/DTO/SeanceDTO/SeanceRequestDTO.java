@@ -15,5 +15,4 @@ public class SeanceRequestDTO {
     private String debutSeance;
     private String finSeance;
     private boolean estDisponible;
-   // private Stade stade;
 }

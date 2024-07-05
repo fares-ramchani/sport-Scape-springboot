@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -20,15 +21,17 @@ public class Stade {
   private String code;
   private String ville;
   private String Adresse;
-  private String nombreDeJoueur;
+  private Long prix;
   private String telephone;
   private String email;
+  private String description;
+  private String descriptionDetaillee;
   @ManyToOne
   @JoinColumn(name = "Activite")
-  private Activite Activite;
+  private Activite activite;
   @Transient
   @OneToMany(mappedBy = "Stade",fetch = FetchType.LAZY)
-  private List<imageStade> PhotosStade;
+  private List<imageStade> photosStade;
   @ManyToOne
   @JoinColumn(name = "propritaireDeStade")
   private propritaireDeStade propritaireDeStade;

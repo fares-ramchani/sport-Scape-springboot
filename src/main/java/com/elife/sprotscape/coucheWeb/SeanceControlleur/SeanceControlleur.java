@@ -15,20 +15,20 @@ import java.util.List;
 public class SeanceControlleur {
     private ServiceSeance serviceSeance;
     @PostMapping(path = "/addSeance")
-    public void addSeance(@RequestBody SeanceRequestDTO seanceRequestDTO){
-        serviceSeance.addSeance(seanceRequestDTO);
+    public void addSeance(@RequestBody SeanceRequestDTO seanceRequestDTO,@RequestParam Long id,@RequestParam String nomActivite){
+        serviceSeance.addSeance(seanceRequestDTO,id,nomActivite);
     }
-    @PutMapping(path = "/updateSeance")
+    @GetMapping(path = "/getSeanceByJourAndStadeAndActivite")
+    public List<Seance> getSeanceByJourAndStadeAndActivite(@RequestParam("jour") String jour,@RequestParam("id") Long id,@RequestParam("nomActivite") String nomActivite) {
+        return serviceSeance.getSeanceByJourAndStadeAndDisbonibiliteAndActivite(jour,id,nomActivite);
+    }
+  /*  @PutMapping(path = "/updateSeance")
     public void updateSeance(@RequestBody SeanceRequestDTO seanceRequestDTO){
         serviceSeance.updateSeance(seanceRequestDTO);
     }
     @DeleteMapping(path = "/deleteSeance/{id}")
     public void deleteSeance(@PathVariable Long id){
         serviceSeance.deleteSeance(id);
-    }
-    @GetMapping(path = "/getAllSeance")
-    public List<Seance> getAllSeance() {
-        return serviceSeance.getAllSeance();
     }
     @GetMapping(path = "/getSeanceById/{id}")
     public Seance getSeanceById(@PathVariable Long id){
@@ -41,5 +41,5 @@ public class SeanceControlleur {
     @GetMapping(path = "/getSeanceByJour")
     public List<Seance> getSeanceByJour(@RequestParam String jour) {
         return serviceSeance.getSeanceByJour(jour);
-    }
+    }*/
 }

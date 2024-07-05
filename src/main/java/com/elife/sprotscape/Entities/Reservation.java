@@ -17,6 +17,7 @@ public class Reservation {
     private Long idReservation;
     private String jourReservation;
     private String heureReservation;
+    private Long prixTotal;
     @Enumerated(EnumType.STRING)
     private EtatReservation etatReservation;
     @ManyToOne()

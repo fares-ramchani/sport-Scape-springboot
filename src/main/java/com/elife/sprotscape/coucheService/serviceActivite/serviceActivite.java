@@ -12,6 +12,7 @@ public interface serviceActivite {
 
     public Activite getActiviteById(Long id);
 
+
     public List<Activite> getAllActivite();
 
     public void updateActivite(String activiteRequestDTO, Long id, MultipartFile File) throws IOException;

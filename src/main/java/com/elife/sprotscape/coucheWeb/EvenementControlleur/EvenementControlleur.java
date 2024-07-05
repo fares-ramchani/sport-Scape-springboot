@@ -34,7 +34,7 @@ private serviceEvenement serviceEvenement;
   }
   @GetMapping(path = "/ByName/{name}")
   public Evenement findByName(@RequestParam String name){
-    return serviceEvenement.findByName(name);
+    return serviceEvenement.findByNomEvenement(name);
   }
 
   @GetMapping(path = "/all")

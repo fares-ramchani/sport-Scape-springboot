@@ -15,16 +15,24 @@ import java.util.List;
 public class ReservationControlleur {
 private ServiceReservation serviceReservation;
     @PostMapping(path = "/addReservation")
-    public void addReservation(@RequestBody ReservationRequestDTO reservationRequestDTO){
-        serviceReservation.addReservation(reservationRequestDTO);
+    public void addReservation(@RequestBody ReservationRequestDTO reservationRequestDTO, @RequestParam("idAthlete") Long idAthlete, @RequestParam("idStade") Long idStade, @RequestParam("nomActivite") String nomActivite){
+        serviceReservation.addReservation(reservationRequestDTO,idAthlete,idStade,nomActivite);
     }
     @PutMapping(path = "/updateReservation{id}")
     public void updateReservation(@RequestBody ReservationRequestDTO reservationRequestDTO,@PathVariable Long id){
         serviceReservation.updateReservation(reservationRequestDTO,id);
     }
-    @DeleteMapping(path = "/deleteReservation/{id}")
-    public void deleteReservation(@PathVariable Long id){
-        serviceReservation.deleteReservation(id);
+    @PutMapping(path = "/accepterReservation/{id}")
+    public void accepterReservation(@PathVariable Long id){
+        serviceReservation.accepterReservation(id);
+    }
+    @PutMapping(path = "/passerReservation/{id}")
+    public void passerReservation(@PathVariable Long id){
+        serviceReservation.passerReservation(id);
+    }
+    @PutMapping(path = "/annulerReservation/{id}")
+    public void annulerReservation(@PathVariable Long id){
+        serviceReservation.annulerReservation(id);
     }
     @GetMapping(path = "/getAllReservation")
     public List<Reservation> getAllReservation() {
@@ -34,8 +42,13 @@ private ServiceReservation serviceReservation;
     public Reservation getReservationById(@PathVariable Long id) {
         return serviceReservation.getReservationById(id);
     }
-    @GetMapping(path = "/getReservationByJour")
-    public List<Reservation> getReservationByJour(@RequestParam String jour) {
-        return serviceReservation.getReservationByJour(jour);
+
+    @GetMapping(path = "/getReservationByJourAndAthlete")
+    public List<Reservation> getReservationByJourAndAthlete(@RequestParam String jour, @PathVariable Long id) {
+        return serviceReservation.getReservationByJourAndAthlete(jour,id);
+    }
+    @GetMapping(path = "/getReservationByJourAndStade")
+    public List<Reservation> getReservationByJourAndStade(@RequestParam String jour, @PathVariable Long id) {
+        return serviceReservation.getReservationByJourAndStade(jour,id);
     }
 }

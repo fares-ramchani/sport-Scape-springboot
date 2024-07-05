@@ -1,6 +1,5 @@
 package com.elife.sprotscape.Entities;
 
-import com.google.api.client.util.DateTime;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +17,8 @@ public class Seance {
     private String debutSeance;
     private String finSeance;
     private boolean estDisponible;
+    @ManyToOne()
+    private Stade stade;
+    @ManyToOne()
+    private Activite activite;
 }

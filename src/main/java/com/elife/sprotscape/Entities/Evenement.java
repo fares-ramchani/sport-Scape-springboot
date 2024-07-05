@@ -2,13 +2,7 @@ package com.elife.sprotscape.Entities;
 
 import com.elife.sprotscape.enums.Etat;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,9 +35,7 @@ public class Evenement {
     @Column(name = "typephotoEvenement")
     private String typephotoEvenement;
     private String nomphotoEvenement;
-
-    // @OneToOne
-    // @JoinColumn(name = "idStade", insertable = false, updatable = false)
-    // private Stade stade;
-
+    @OneToOne
+    @JoinColumn(name = "idStade", insertable = false, updatable = false)
+     private Stade stade;
 }

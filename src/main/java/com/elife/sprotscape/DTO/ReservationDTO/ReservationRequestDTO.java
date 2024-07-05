@@ -15,8 +15,5 @@ public class ReservationRequestDTO {
     private String jourReservation;
     private String heureReservation;
     private EtatReservation etatReservation;
-   /* @ManyToOne()
-    private Athlete athlete;
-    @ManyToOne()
-    private Stade stade;*/
+    private Long prixTotal;
 }

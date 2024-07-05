@@ -21,7 +21,7 @@ public class propritaireDeStade {
                              String prenom,String telephone,
                              String mail,String activiteSportive,
                              String entrepriseee,String name,String code
-    ,String type,byte[] picbyte,boolean compteVerifier ){
+          ,String type,byte[] picbyte,boolean compteVerifier ){
     this.NomPhotoPropritaire=name;
     this.typePhotoPropritaire=type;
     this.PhotoPropritaire=picbyte;
@@ -38,7 +38,7 @@ public class propritaireDeStade {
   }
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPropritaire;
+  private Long idPropritaire;
   private String nom;
   private String prenom;
   private String telephone;
@@ -55,5 +55,4 @@ public class propritaireDeStade {
   @Transient
   @OneToMany(mappedBy = "propritaireDeStade",fetch = FetchType.LAZY)
   private List<Stade> stade;
-
 }
