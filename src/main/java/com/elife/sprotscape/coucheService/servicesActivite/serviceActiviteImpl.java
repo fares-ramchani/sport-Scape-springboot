@@ -1,7 +1,10 @@
 package com.elife.sprotscape.coucheService.servicesActivite;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.elife.sprotscape.DAO.StadeRepository.StadeRepository;
+import com.elife.sprotscape.Entities.Stade;
 import org.springframework.stereotype.Service;
 
 import com.elife.sprotscape.DAO.ActiviteRepository.ActiviteRepository;
@@ -16,6 +19,7 @@ import lombok.AllArgsConstructor;
 @Transactional
 public class serviceActiviteImpl implements serviceActivite {
     private ActiviteRepository activiteRepository;
+    private StadeRepository StadeRepository;
 
     @Override
     public void addActivite(ActiviteRequestDTO activiteRequestDTO) {
@@ -36,7 +40,9 @@ public class serviceActiviteImpl implements serviceActivite {
 
     @Override
     public List<Activite> getAllActivite() {
-        return activiteRepository.findAll();
+      List<Activite> activites=activiteRepository.findAll();
+
+        return activites;
     }
 
     @Override

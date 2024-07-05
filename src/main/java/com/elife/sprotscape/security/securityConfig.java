@@ -61,22 +61,47 @@ public class securityConfig {
     return new BCryptPasswordEncoder();
   }
 
+
   @Bean
-  public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-    return httpSecurity
-        .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/login/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/signUpGoogle/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/url/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/auth/callback/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/Athlete/ajouterAthlete/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/ajouterPropritaire/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.requestMatchers("/propritaire/GetlogosPropritaire/**").permitAll())
-        .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
-        .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
-        .cors(Customizer.withDefaults())
-        .build();
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    return http
+      .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+      .csrf(csrf -> csrf.disable())
+      .authorizeHttpRequests(ar -> ar
+        .requestMatchers("/auth/login/**").permitAll()
+        .requestMatchers("/auth/signUpGoogle/**").permitAll()
+        .requestMatchers("/auth/url/**").permitAll()
+        .requestMatchers("/auth/callback/**").permitAll()
+        .requestMatchers("/auth/AcessToken/**").permitAll()
+        .requestMatchers("/stripe/payment/**").permitAll()
+        .requestMatchers("/propritaire/ajouterPropritaire/**").permitAll()
+        .requestMatchers("/propritaire/VerifierCompte/**").permitAll()
+      )
+      .authorizeHttpRequests(ar -> ar
+        .anyRequest().authenticated()
+      )
+      .oauth2ResourceServer(oa -> oa.jwt(Customizer.withDefaults()))
+      .cors(Customizer.withDefaults())
+      .build();
+  }
+  @Bean
+  public SecurityFilterChain securityFilterChain2(HttpSecurity http) throws Exception {
+    return http
+      .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+      .csrf(csrf -> csrf.disable())
+      .authorizeHttpRequests(ar -> ar
+        .requestMatchers("/auth/login/**").permitAll()
+        .requestMatchers("/auth/signUpGoogle/**").permitAll()
+        .requestMatchers("/auth/url/**").permitAll()
+        .requestMatchers("/auth/callback/**").permitAll()
+        .requestMatchers("/auth/AcessToken/**").permitAll()
+      )
+      .authorizeHttpRequests(ar -> ar
+        .anyRequest().authenticated()
+      )
+      .oauth2ResourceServer(oa -> oa.opaqueToken(Customizer.withDefaults()))
+      .cors(Customizer.withDefaults())
+      .build();
   }
 
   @Bean

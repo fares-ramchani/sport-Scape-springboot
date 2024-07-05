@@ -102,6 +102,23 @@ public class securityControlleur {
     }
     return ResponseEntity.ok(new TokenDto(token));
   }
+  @GetMapping("/AcessToken")
+  public ResponseEntity<TokenDto> callbackgetAcessToken(@RequestParam("code") String code) throws URISyntaxException {
+
+    String token;
+    try {
+      token = new GoogleAuthorizationCodeTokenRequest(
+        new NetHttpTransport(), new GsonFactory(),
+        clientId,
+        clientSecret,
+        code,
+        "http://localhost:4200").execute().getAccessToken();
+    } catch (IOException e) {
+      System.err.println(e.getMessage());
+      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+    }
+    return ResponseEntity.ok(new TokenDto(token));
+  }
 
   @GetMapping("/signUpGoogle")
   public ResponseEntity<TokenDto> signUpGoogle(@RequestParam("code") String code) throws URISyntaxException {
