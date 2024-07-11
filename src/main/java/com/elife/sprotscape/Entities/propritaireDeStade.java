@@ -55,5 +55,4 @@ public class propritaireDeStade {
   @Transient
   @OneToMany(mappedBy = "propritaireDeStade",fetch = FetchType.LAZY)
   private List<Stade> stade;
-
 }

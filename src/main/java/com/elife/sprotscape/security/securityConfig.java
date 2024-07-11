@@ -46,14 +46,15 @@ public class securityConfig {
 
   // @Bean
   // public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-  //   PasswordEncoder passwordEncoder = passwordEncoder();
+  // PasswordEncoder passwordEncoder = passwordEncoder();
 
-  //   InMemoryUserDetailsManager aa = new InMemoryUserDetailsManager();
-  //   aa.createUser(User.withUsername("user11").password(passwordEncoder.encode("12345")).authorities("USER").build());
+  // InMemoryUserDetailsManager aa = new InMemoryUserDetailsManager();
+  // aa.createUser(User.withUsername("user11").password(passwordEncoder.encode("12345")).authorities("USER").build());
 
-  //   aa.createUser(
-  //       User.withUsername("admin22").password(passwordEncoder.encode("12345")).authorities("USER", "ADMIN").build());
-  //   return aa;
+  // aa.createUser(
+  // User.withUsername("admin22").password(passwordEncoder.encode("12345")).authorities("USER",
+  // "ADMIN").build());
+  // return aa;
   // }
 
   @Bean
@@ -76,6 +77,13 @@ public class securityConfig {
         .requestMatchers("/stripe/payment/**").permitAll()
         .requestMatchers("/propritaire/ajouterPropritaire/**").permitAll()
         .requestMatchers("/propritaire/VerifierCompte/**").permitAll()
+        .requestMatchers("/stade/getToutLesStades/**").permitAll()
+        .requestMatchers("/stade/getStadeByIdAndActivite/**").permitAll()
+        .requestMatchers("/stade/getStadeById/**").permitAll()
+        .requestMatchers("/stade/getStadeByVilleAndActivite/**").permitAll()
+        .requestMatchers("/activite/**").permitAll()
+          .requestMatchers("/Seances/**").permitAll()
+
       )
       .authorizeHttpRequests(ar -> ar
         .anyRequest().authenticated()

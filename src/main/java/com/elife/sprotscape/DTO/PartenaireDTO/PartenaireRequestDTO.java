@@ -14,5 +14,6 @@ public class PartenaireRequestDTO {
     private String nomResponsable;
     private String telephoneResponsable;
     private String adressePartenaire;
+    private String emailResponsable;
     private Etat etatPartenaire;
 }

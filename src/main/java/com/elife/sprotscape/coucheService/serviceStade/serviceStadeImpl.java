@@ -44,6 +44,10 @@ public class serviceStadeImpl implements serviceStade {
     stade.setActivite(Activite);
     stade.setVille(stadeRequestDTO1.getVille());
     stade.setNombreDeJoueur(stadeRequestDTO1.getNombremax());
+    stade.setDescription(stadeRequestDTO1.getDescription());
+    stade.setDescriptionDetaillee(stadeRequestDTO1.getDescriptionDetaillee());
+    stade.setActivite(Activite);
+    stade.setVille(stadeRequestDTO1.getVille());
     stade.setCode(propritaireDeStade.getCode());
     stade.setPropritaireDeStade(propritaireDeStade);
     StadeRepository.save(stade);
@@ -64,20 +68,22 @@ public class serviceStadeImpl implements serviceStade {
 
   }
 
+  @Override
+  public Stade getStadeByIdAndActivite(Long id, String nomActivite) {
+    Activite activite=ActiviteRepository.findByNomActivite(nomActivite);
+    return StadeRepository.findByIdStadeAndActivite(id,activite);
+  }
 
+  @Override
+  public Stade getStadeById(Long id) {
+    return StadeRepository.findById(id).get();
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
+  @Override
+  public List<Stade> getStadeByVilleAndActivite(String ville, String nomActivite) {
+    Activite activite=ActiviteRepository.findByNomActivite(nomActivite);
+    return StadeRepository.findByVilleAndActivite(ville,activite);
+  }
 
 
   public static byte[] compressBytes(byte[] data) {

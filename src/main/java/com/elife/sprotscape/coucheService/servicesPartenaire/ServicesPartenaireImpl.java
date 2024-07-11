@@ -23,6 +23,7 @@ public class ServicesPartenaireImpl implements ServicesPartenaire{
         partenaire.setNomResponsable(partenaireRequestDTO.getNomResponsable());
         partenaire.setTelephoneResponsable(partenaireRequestDTO.getTelephoneResponsable());
         partenaire.setAdressePartenaire(partenaireRequestDTO.getAdressePartenaire());
+        partenaire.setEmailResponsable(partenaireRequestDTO.getEmailResponsable());
         partenaire.setEtatPartenaire(Etat.NON_TRAITER);
         partenaireRepository.save(partenaire);
     }
@@ -56,6 +57,9 @@ public class ServicesPartenaireImpl implements ServicesPartenaire{
         }
         if(!Objects.equals(partenaireRequestDTO.getTelephoneResponsable(), "")){
             partenaire.setTelephoneResponsable(partenaireRequestDTO.getTelephoneResponsable());
+        }
+        if(!Objects.equals(partenaireRequestDTO.getEmailResponsable(), "")){
+            partenaire.setEmailResponsable(partenaireRequestDTO.getEmailResponsable());
         }
         if(!Objects.equals(partenaireRequestDTO.getEtatPartenaire(), "")){
             partenaire.setEtatPartenaire(partenaireRequestDTO.getEtatPartenaire());

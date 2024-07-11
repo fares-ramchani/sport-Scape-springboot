@@ -16,4 +16,6 @@ public class stadeRequestDTO {
   private String telephone;
   private String mail;
   private String activite;
+  private String description;
+  private String descriptionDetaillee;
 }

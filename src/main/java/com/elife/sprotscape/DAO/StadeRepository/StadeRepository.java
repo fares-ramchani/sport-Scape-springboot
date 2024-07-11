@@ -7,9 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+import java.util.List;
+
 public interface StadeRepository extends JpaRepository<Stade,Long> {
-
-
-
-
+    Stade findByIdStadeAndActivite(Long id, Activite activite);
+    List<Stade> findByVilleAndActivite(String ville, Activite activite);
 }

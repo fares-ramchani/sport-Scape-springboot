@@ -13,8 +13,7 @@ public class ActiviteRequestDTO {
     private long nombreParticipant;
     private long prix;
     private String activiteRecommandee;
-    private String photoActivite;
-    private String typephotoActivite;
     private String nomphotoActivite;
     private long dureeActivite;
+    private String PhotoActivit;
 }

@@ -12,24 +12,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Activite {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idActivite;
-    private String nomActivite;
-    private long nombreParticipant;
-    private long prix;
-    private String activiteRecommandee;
-    private String photoActivite;
-    private String typephotoActivite;
-    private String nomphotoActivite;
-    private long dureeActivite;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long idActivite;
+  private String nomActivite;
+  private long nombreParticipant;
+  private long prix;
+  private String activiteRecommandee;
+  private byte[] photoActivite;
+  private String typephotoActivite;
+  private String nomphotoActivite;
+  private long dureeActivite;
   @Transient
   @OneToMany(mappedBy = "Activite",fetch = FetchType.LAZY)
   private List<Stade> Stades;
-
-    // @ManyToOne
-    // @JoinColumn(name = "idReservation", insertable = false, updatable = false)
-    // private Reservation reservation;
-    // private long idReservation;
 }
